@@ -7,10 +7,6 @@ fun main(args: Array<String>) {
 
     println("Radius: $radius, Area: $area")
 
-    // Output Concatenation
-    println("Radius: " + radius + ", Area: " + area)
-
-    // Logic check
     checkSize(area)
 }
 
