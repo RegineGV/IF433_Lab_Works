@@ -1,7 +1,7 @@
 package oop_00000105852_RegineGabrielleViola.week01
 
 fun main() {
-    val title = "ENCHANTED Ring"
+    val title = "ENCHANTED RING"
     val price = 600000
     val discount = calculateDiscount(price)
     val finalPrice = price - discount
@@ -15,4 +15,8 @@ fun printReceipt(title: String, finalPrice: Int) {
     println("=== STRUK PEMBELIAN ===")
     println("Game: $title")
     println("Bayar: Rp $finalPrice")
+
+    val userNote: String? = null
+    val noteToShow = userNote ?: "Tidak ada catatan"
+    println("Catatan: $noteToShow")
 }
