@@ -3,4 +3,9 @@ package oop_00000105852_RegineGabrielleViola.week01
 fun main() {
     val title = "ENCHANTED RING"
     val price = 600000
+
+    val discount = calculateDiscount(price)
+    val finalPrice = price - discount
 }
+
+fun calculateDiscount(price: Int) = if (price > 500000) (price * 0.2).toInt() else (price * 0.1).toInt()
