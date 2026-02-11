@@ -72,4 +72,64 @@ fun main() {
         println("Input hari harus angka!")
         scanner.nextLine() // Bersihkan buffer jika input salah
     }
+
+    // --- TUGAS MANDIRI 2: MINI RPG BATTLE ---
+    println("\n--- MINI RPG BATTLE ---")
+
+    print("Masukkan Nama Hero: ")
+    val heroName = scanner.nextLine()
+
+    print("Masukkan Base Damage Hero: ")
+    if (scanner.hasNextInt()) {
+        val heroDmg = scanner.nextInt()
+        scanner.nextLine()
+
+        val myHero = Hero(heroName, baseDamage = heroDmg)
+
+        var enemyHp = 100
+
+        println("BATTLE START! ${myHero.name} (HP: ${myHero.hp}) vs Enemy (HP: $enemyHp)")
+
+        while (myHero.isAlive() && enemyHp > 0) {
+            println("\nGiliran Anda:")
+            println("1. Serang")
+            println("2. Kabur")
+            print("Pilih Aksi: ")
+
+            val action = scanner.nextInt()
+            scanner.nextLine()
+
+            if (action == 1) {
+                myHero.attack("Musuh Jahat")
+                enemyHp -= myHero.baseDamage
+
+                if (enemyHp < 0) enemyHp = 0
+                println("Musuh terkena ${myHero.baseDamage} damage! (Sisa HP Musuh: $enemyHp)")
+
+                if (enemyHp > 0) {
+                    println(">> Musuh membalas serangan!")
+                    val enemyDmg = (10..20).random()
+                    myHero.takeDamage(enemyDmg)
+                }
+
+            } else if (action == 2) {
+                println("${myHero.name} memilih untuk melarikan diri...")
+                break
+            } else {
+                println("Aksi tidak valid! Kehilangan giliran.")
+            }
+        }
+
+        println("\n--- HASIL PERTARUNGAN ---")
+        if (enemyHp <= 0) {
+            println("VICTORY! Musuh telah dikalahkan.")
+        } else if (!myHero.isAlive()) {
+            println("GAME OVER! Hero Anda telah gugur.")
+        } else {
+            println("Pertarungan dihentikan (Kabur).")
+        }
+
+    } else {
+        println("Damage harus angka!")
+    }
 }
