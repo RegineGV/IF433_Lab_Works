@@ -41,4 +41,35 @@ fun main() {
         }
     }
     println("Status: Pendaftaran Selesai.")
+
+    // --- TUGAS MANDIRI 1: LIBRARY SYSTEM ---
+    println("\n--- SISTEM PERPUSTAKAAN ---")
+
+    print("Judul Buku: ")
+    val title = scanner.nextLine()
+
+    print("Peminjam: ")
+    val borrower = scanner.nextLine()
+
+    print("Lama Pinjam (hari): ")
+    if (scanner.hasNextInt()) {
+        var days = scanner.nextInt()
+        scanner.nextLine() // Consume newline
+
+        if (days < 0) {
+            println("Info: Lama pinjam tidak valid ($days), diubah otomatis menjadi 1 hari.")
+            days = 1
+        }
+
+        // Buat Object Loan
+        val loan = Loan(title, borrower, days)
+
+        // Output Hasil
+        println("Detail: Buku '${loan.bookTitle}' dipinjam oleh ${loan.borrower} selama ${loan.loanDuration} hari.")
+        println("Total Denda: Rp ${loan.calculateFine()}")
+
+    } else {
+        println("Input hari harus angka!")
+        scanner.nextLine() // Bersihkan buffer jika input salah
+    }
 }
