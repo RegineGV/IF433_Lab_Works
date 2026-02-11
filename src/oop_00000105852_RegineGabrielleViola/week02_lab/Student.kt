@@ -3,7 +3,8 @@ package oop_00000105852_RegineGabrielleViola.week02_lab
 class Student(
     val name: String,
     val nim: String,
-    var major: String
+    var major: String,
+    var gpa: Double = 0.0, //<-- Default Argument
 ) {
     init {
         // Validasi Sederhana: Cek panjang NIM [cite: 31]
