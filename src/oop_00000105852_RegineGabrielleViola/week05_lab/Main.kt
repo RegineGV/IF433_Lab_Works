@@ -38,4 +38,14 @@ fun main() {
     for (pay in listPayment) {
         pay.processPayment(75000.0)
     }
+
+    for (pay in listPayment) {
+        pay.processPayment(75000.0)
+
+        // Smart Casting Challenge
+        if (pay is EWallet) {
+            pay.topUp(50000.0)
+            pay.processPayment(75000.0)
+        }
+    }
 }
