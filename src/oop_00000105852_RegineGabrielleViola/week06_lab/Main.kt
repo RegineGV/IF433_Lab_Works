@@ -19,4 +19,11 @@ fun main() {
     println("\n=== TESTING CHECKOUT ===")
     processCheckout(method = pay1, amount = 50000.0)
     processCheckout(method = pay2, amount = 150000.0)
+
+
+    println("\n=== SMART HOME INSTANTIATION (TASK) ===")
+    val livingRoomLamp = SmartLamp("LAMP-01", "Lampu Ruang Tamu")
+    val kitchenSpeaker = SmartSpeaker("SPK-01", "Speaker Dapur")
+    val garageCCTV = SmartCCTV("CCTV-01", "CCTV Garasi")
 }
+
