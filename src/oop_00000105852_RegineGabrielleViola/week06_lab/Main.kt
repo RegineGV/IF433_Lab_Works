@@ -25,5 +25,15 @@ fun main() {
     val livingRoomLamp = SmartLamp("LAMP-01", "Lampu Ruang Tamu")
     val kitchenSpeaker = SmartSpeaker("SPK-01", "Speaker Dapur")
     val garageCCTV = SmartCCTV("CCTV-01", "CCTV Garasi")
+
+    println("\n=== SMART HOME HUB TESTING (TASK) ===")
+    val hub = SmartHomeHub()
+
+    hub.addDevice(livingRoomLamp)
+    hub.addDevice(kitchenSpeaker)
+    hub.addDevice(garageCCTV)
+
+    hub.activateSecurityMode()
+    hub.turnOffAllSwitches()
 }
 
