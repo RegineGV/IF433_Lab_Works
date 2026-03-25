@@ -40,4 +40,7 @@ fun main() {
     println("\n=== TEST RPG ENGINE ===")
     GameManager.startGame()
     GameManager.startGame()
+    println("Drop Chance Legendary: ${ItemRarity.LEGENDARY.dropChance}%")
+    val starterWeapon = Weapon.forgeStarterSword()
+    println("Senjata Awal: $starterWeapon")
 }
