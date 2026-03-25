@@ -40,7 +40,19 @@ fun main() {
     println("\n=== TEST RPG ENGINE ===")
     GameManager.startGame()
     GameManager.startGame()
+
     println("Drop Chance Legendary: ${ItemRarity.LEGENDARY.dropChance}%")
     val starterWeapon = Weapon.forgeStarterSword()
     println("Senjata Awal: $starterWeapon")
+
+    // Upgrade senjata via copy()
+    val upgradedItem = starterWeapon.item.copy(name = "Pedang Kayu Tajam", damage = 25)
+    println("Senjata Di-upgrade menjadi: $upgradedItem")
+
+    // Simulasi Event
+    println("\n--- Simulasi Battle ---")
+    processEvent(BattleState.SafeZone)
+    processEvent(BattleState.MonsterEncounter("Goblin Nakal"))
+    processEvent(BattleState.LootDropped(upgradedItem))
+    processEvent(BattleState.GameOver("Terkena jebakan racun"))
 }
