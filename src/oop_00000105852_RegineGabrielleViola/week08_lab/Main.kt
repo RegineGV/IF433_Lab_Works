@@ -58,6 +58,4 @@ fun main() {
     println("Status dari Java: $javaResponse (Length: $statusLength)")
 
     DatabaseMock.runMockUnitTest()
-
-    // commit 18
 }

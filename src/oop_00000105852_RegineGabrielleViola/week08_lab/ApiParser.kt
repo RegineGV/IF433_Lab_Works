@@ -2,16 +2,17 @@ package oop_00000105852_RegineGabrielleViola.week08_lab
 
 class ApiParser {
     fun parseProduct(rawJson: Map<String, Any?>): Product? {
-        // Wajib pakai requireNotNull [cite: 199]
         val id = requireNotNull(rawJson["id"]) { "API Invalid: Missing ID" } as String
         val name = requireNotNull(rawJson["name"]) { "API Invalid: Missing Name" } as String
+
         val type = rawJson["type"] as? String
 
         return when (type) {
             "ELECTRONIC" -> {
-                val warranty = rawJson["warranty"] as? Int ?:
-                Electronic(id, name, warranty)
-            }
+            val warranty = rawJson["warranty"] as? Int ?: 12
+            // Gunakan warrantyMonths sesuai data class di EcommerceModels.kt
+            Electronic(id, name, warranty)
+        }
             "CLOTHING" -> {
                 val size = rawJson["size"] as? String ?: "All Size"
                 Clothing(id, name, size)
@@ -25,7 +26,8 @@ class ApiParser {
             is Electronic -> product.id
             is Clothing -> product.id
         }
-        val transactionId = JavaPaymentService.processPayment(id)!! // Wajib pakai !!
+        // Memanggil Java Service dengan !! sesuai instruksi
+        val transactionId = JavaPaymentService.processPayment(id)!!
         println("Transaction ID: $transactionId")
     }
 }
