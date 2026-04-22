@@ -6,4 +6,6 @@ data class TradeLog(
     val leverage: Int,
     val roe: Double,
     val status: String
+
+    //checkpoint 10
 )
