@@ -45,4 +45,6 @@ fun main() {
 
     println("\n--- UNIQUE TRADING PAIRS ---")
     println(uniquePairs)
+
+    //coba run
 }
