@@ -20,4 +20,9 @@ fun main() {
 
     // Pipeline 3: Losing trades (roe <= 0)
     val losingTrades = closedTrades.filter { it.roe <= 0 }
+
+    // Pipeline 4: Urutkan profit tertinggi lalu format ke String
+    val topPerformersString = winningTrades
+        .sortedByDescending { it.roe }
+        .map { "WIN [${it.pair} - ${it.position}]: +${it.roe}% ROE (Lev: ${it.leverage}x)" }
 }
