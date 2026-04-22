@@ -9,4 +9,16 @@ fun main() {
     val evens = numbers.filter { it % 2 == 0 }
     println("Evens only: $evens")
 
+    println("\n=== HOF: MAP ===")
+    // map() merubah bentuk/nilai data, tapi ukurannya tetap sama
+    val multiplied = evens.map { it * 10 }
+    val asStrings = multiplied.map { "Rp ${it}k" }
+    println("Multiplied: $multiplied")
+    println("Formatted: $asStrings")
+
+    println("\n=== HOF: SORTED & FOREACH ===")
+    val sortedDesc = numbers.sortedByDescending { it }
+    println("Sorted Descending: $sortedDesc")
+
+    sortedDesc.forEach { println("Value: $it") }
 }
