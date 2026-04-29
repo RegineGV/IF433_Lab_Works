@@ -24,4 +24,6 @@ fun main() {
     txRepo.getAll().forEach { tx ->
         println("ID: ${tx.id} | Amount: ${tx.amount} USD")
     }
+
+    //Run (checkpoint 20)
 }
