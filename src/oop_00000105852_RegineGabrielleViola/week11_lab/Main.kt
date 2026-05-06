@@ -26,4 +26,12 @@ fun main() {
     }.also {
         println("User baru berhasil dibuat: $it")
     }
+
+    // === Pencahayaan ===
+    SmartDevice("Philips WiZ Living Room", "Lighting").apply {
+        isOnline  = true
+        powerLoad = 12
+    }.also {
+        homeDevices.add(it)
+    }
 }
