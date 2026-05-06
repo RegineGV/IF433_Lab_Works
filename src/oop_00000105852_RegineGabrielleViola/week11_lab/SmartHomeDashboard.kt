@@ -46,6 +46,7 @@ fun main() {
     // === Kalkulasi daya ===
     val totalPower = homeDevices.run { sumOf { it.powerLoad } }
     println("Total daya terpakai: $totalPower Watt")
+    //(ini checkpoint 19)
 
     // === Full Diagnostik ===
     println("\n=== DIAGNOSTIK SEMUA PERANGKAT ===")
