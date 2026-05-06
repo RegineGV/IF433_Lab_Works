@@ -60,4 +60,10 @@ fun main() {
     searchResult?.let {
         println(it.diagnose())
     }
+
+    // === Summary dengan with ===
+    with(homeDevices) {
+        println("\n=== DASHBOARD SUMMARY ===")
+        println("Total perangkat terdaftar: ${this.size}")
+    }
 }
