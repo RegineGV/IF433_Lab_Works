@@ -5,22 +5,20 @@ import java.io.FileNotFoundException
 
 data class Student(val name: String, val age: Int, val gpa: Double)
 
-// Serialization (Object -> CSV)
 fun Student.toCsv(): String = "$name,$age,$gpa"
 
-// Deserialization (CSV -> Object)
 fun fromCsv(line: String): Student {
-    val parts = line.split(delimiters = ",")
+    val parts = line.split(",")  // fix di sini
     return Student(name = parts[0], age = parts[1].toInt(), gpa = parts[2].toDouble())
 }
 
 fun saveStudents(students: List<Student>, path: String) {
-    File(pathname = path).writeText(students.joinToString(separator = "\n") { it.toCsv() })
+    File(path).writeText(students.joinToString(separator = "\n") { it.toCsv() })  // fix di sini
 }
 
 fun loadStudents(path: String): List<Student> {
     return try {
-        File(pathname = path).readLines().map { fromCsv(line = it) }
+        File(path).readLines().map { fromCsv(it) }  // fix di sini
     } catch (e: FileNotFoundException) {
         println("Error: File tidak ditemukan!")
         emptyList()
