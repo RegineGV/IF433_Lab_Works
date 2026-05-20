@@ -1,0 +1,12 @@
+package oop_00000105852_RegineGabrielleViola.week13_lab
+
+import java.io.File
+import java.io.FileNotFoundException
+
+data class TradeRecord(
+    val id: Int,
+    val symbol: String,
+    val type: String,
+    val margin: Double,
+    val pnl: Double
+)
