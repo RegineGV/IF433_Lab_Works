@@ -48,10 +48,15 @@ fun loadTrades(path: String): List<TradeRecord> {
 
 fun main() {
     val trades = listOf(
-        TradeRecord(id = 1, symbol = "BTCUSDT", type = "Long",  margin = 100.0, pnl = 25.5),
-        TradeRecord(id = 2, symbol = "ETHUSDT", type = "Short", margin = 50.0,  pnl = -10.0),
-        TradeRecord(id = 3, symbol = "SOLUSDT", type = "Long",  margin = 75.0,  pnl = 18.3)
+        TradeRecord(id = 1, symbol = "BTCUSDT", type = "Long", margin = 100.0, pnl = 25.5),
+        TradeRecord(id = 2, symbol = "ETHUSDT", type = "Short", margin = 50.0, pnl = -10.0),
+        TradeRecord(id = 3, symbol = "SOLUSDT", type = "Long", margin = 75.0, pnl = 18.3)
     )
 
     saveTrades(trades, path = "crypto_trades.csv")
     println("Trade records berhasil disimpan.")
+
+    // Menyuntikkan baris data korup untuk menguji robustness sistem
+    File("crypto_trades.csv").appendText("CORRUPT_ID,DOGEUSDT,Hold,XX,YY\n")
+    println("Baris data korup berhasil di-inject.")
+}
